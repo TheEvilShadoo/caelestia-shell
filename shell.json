@@ -1,0 +1,318 @@
+{
+    "appearance": {
+        "anim": {
+            "durations": {
+                "scale": 0.9624822443181819
+            }
+        },
+        "transparency": {
+            "enabled": false
+        }
+    },
+    "background": {
+        "desktopClock": {
+            "background": {
+                "enabled": false
+            },
+            "enabled": true,
+            "invertColors": false,
+            "position": "top-right"
+        },
+        "visualiser": {
+            "autoHide": true,
+            "enabled": true,
+            "rounding": 1,
+            "spacing": 0.956908047309833
+        },
+        "wallpaperEnabled": true
+    },
+    "bar": {
+        "activeWindow": {
+            "compact": false,
+            "inverted": false
+        },
+        "clock": {
+            "background": false,
+            "showDate": false
+        },
+        "excludedScreens": [
+        ],
+        "status": {
+            "showAudio": true,
+            "showKbLayout": false,
+            "showLockStatus": true,
+            "showMicrophone": false
+        },
+        "tray": {
+            "background": false,
+            "compact": false,
+            "recolour": false
+        },
+        "workspaces": {
+            "occupiedBg": false
+        }
+    },
+    "dashboard": {
+        "enabled": true
+    },
+    "general": {
+        "apps": {
+            "terminal": [
+                "footclient",
+                "-e"
+            ]
+        },
+        "idle": {
+            "timeouts": [
+                {
+                    "idleAction": "lock",
+                    "timeout": 180
+                },
+                {
+                    "idleAction": "dpms off",
+                    "returnAction": "dpms on",
+                    "timeout": 300
+                },
+                {
+                    "idleAction": [
+                        "loginctl",
+                        "suspend-then-hibernate"
+                    ],
+                    "timeout": 600
+                }
+            ]
+        }
+    },
+    "launcher": {
+        "actions": [
+            {
+                "command": [
+                    "autocomplete",
+                    "calc"
+                ],
+                "dangerous": false,
+                "description": "Do simple math equations (powered by Qalc)",
+                "enabled": true,
+                "icon": "calculate",
+                "name": "Calculator"
+            },
+            {
+                "command": [
+                    "autocomplete",
+                    "scheme"
+                ],
+                "dangerous": false,
+                "description": "Change the current colour scheme",
+                "enabled": true,
+                "icon": "palette",
+                "name": "Scheme"
+            },
+            {
+                "command": [
+                    "autocomplete",
+                    "wallpaper"
+                ],
+                "dangerous": false,
+                "description": "Change the current wallpaper",
+                "enabled": true,
+                "icon": "image",
+                "name": "Wallpaper"
+            },
+            {
+                "command": [
+                    "autocomplete",
+                    "variant"
+                ],
+                "dangerous": false,
+                "description": "Change the current scheme variant",
+                "enabled": true,
+                "icon": "colors",
+                "name": "Variant"
+            },
+            {
+                "command": [
+                    "autocomplete",
+                    "transparency"
+                ],
+                "dangerous": false,
+                "description": "Change shell transparency",
+                "enabled": false,
+                "icon": "opacity",
+                "name": "Transparency"
+            },
+            {
+                "command": [
+                    "caelestia",
+                    "wallpaper",
+                    "-r"
+                ],
+                "dangerous": false,
+                "description": "Switch to a random wallpaper",
+                "enabled": true,
+                "icon": "casino",
+                "name": "Random"
+            },
+            {
+                "command": [
+                    "setMode",
+                    "light"
+                ],
+                "dangerous": false,
+                "description": "Change the scheme to light mode",
+                "enabled": true,
+                "icon": "light_mode",
+                "name": "Light"
+            },
+            {
+                "command": [
+                    "setMode",
+                    "dark"
+                ],
+                "dangerous": false,
+                "description": "Change the scheme to dark mode",
+                "enabled": true,
+                "icon": "dark_mode",
+                "name": "Dark"
+            },
+            {
+                "command": [
+                    "loginctl",
+                    "poweroff"
+                ],
+                "dangerous": true,
+                "description": "Shutdown the system",
+                "enabled": true,
+                "icon": "power_settings_new",
+                "name": "Shutdown"
+            },
+            {
+                "command": [
+                    "loginctl",
+                    "reboot"
+                ],
+                "dangerous": true,
+                "description": "Reboot the system",
+                "enabled": true,
+                "icon": "cached",
+                "name": "Reboot"
+            },
+            {
+                "command": [
+                    "hyprctl",
+                    "dispatch",
+                    "exit"
+                ],
+                "dangerous": true,
+                "description": "Log out of the current session",
+                "enabled": true,
+                "icon": "exit_to_app",
+                "name": "Logout"
+            },
+            {
+                "command": [
+                    "loginctl",
+                    "lock-session"
+                ],
+                "dangerous": false,
+                "description": "Lock the current session",
+                "enabled": true,
+                "icon": "lock",
+                "name": "Lock"
+            },
+            {
+                "command": [
+                    "loginctl",
+                    "suspend-then-hibernate"
+                ],
+                "dangerous": false,
+                "description": "Suspend then hibernate",
+                "enabled": true,
+                "icon": "bedtime",
+                "name": "Sleep"
+            },
+            {
+                "command": [
+                    "caelestia",
+                    "shell",
+                    "controlCenter",
+                    "open"
+                ],
+                "dangerous": false,
+                "description": "Configure the shell",
+                "enabled": true,
+                "icon": "settings",
+                "name": "Settings"
+            }
+        ],
+        "enableDangerousActions": true,
+        "favouriteApps": [
+            "vesktop-bin",
+            "steam"
+        ],
+        "hiddenApps": [
+            "foot",
+            "foot-server",
+            "qt5ct",
+            "wine-browsedrive",
+            "wine-winecfg",
+            "gammastep-indicator",
+            "gtk-lshw-lshw",
+            "lstopo",
+            "mediainfo-gui",
+            "mpv",
+            "mupdf",
+            "wine-notepad",
+            "Proton 8.0",
+            "Proton 9.0",
+            "Proton Experimental",
+            "protontricks",
+            "assistant",
+            "qdbusviewer",
+            "linguist",
+            "qv4l2",
+            "qvidcap",
+            "designer",
+            "qt6ct",
+            "Steam Linux Runtime 3.0 (sniper)",
+            "wine-uninstaller",
+            "winetricks",
+            "wpa_gui",
+            "org.pwmt.zathura"
+        ],
+        "showOnHover": false,
+        "useFuzzy": {
+            "apps": false
+        },
+        "vimKeybinds": false
+    },
+    "services": {
+        "lyricsBackend": "NetEase",
+        "showLyrics": true
+    },
+    "session": {
+        "commands": {
+            "hibernate": [
+                "loginctl",
+                "hibernate"
+            ],
+            "logout": [
+                "hyprctl",
+                "dispatch",
+                "exit"
+            ],
+            "reboot": [
+                "loginctl",
+                "reboot"
+            ],
+            "shutdown": [
+                "loginctl",
+                "poweroff"
+            ]
+        }
+    },
+    "utilities": {
+        "toasts": {
+            "kbLayoutChanged": false
+        }
+    }
+}

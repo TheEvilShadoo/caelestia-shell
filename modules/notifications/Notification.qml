@@ -426,7 +426,7 @@ StyledRect {
                     if (!root.expanded)
                         return;
 
-                    Quickshell.execDetached(["app2unit", "-O", "--", link]);
+                    Quickshell.execDetached(["gtk-launch", link]);
                     root.modelData.popup = false;
                 }
 
