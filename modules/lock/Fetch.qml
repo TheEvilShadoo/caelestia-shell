@@ -73,7 +73,7 @@ ColumnLayout {
             Layout.fillWidth: true
             Layout.topMargin: Tokens.padding.normal
             Layout.bottomMargin: Tokens.padding.normal
-            Layout.leftMargin: iconLoader.active ? 0 : width * 0.1
+            Layout.leftMargin: -20 //iconLoader.active ? 0 : width * 0.1
             spacing: Tokens.spacing.normal
 
             WrappedLoader {

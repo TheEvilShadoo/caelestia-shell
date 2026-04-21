@@ -81,7 +81,8 @@
                     "timeout": 600
                 }
             ]
-        }
+        },
+        "logo": "gentoo.svg"
     },
     "launcher": {
         "actions": [
@@ -287,7 +288,9 @@
     },
     "services": {
         "lyricsBackend": "NetEase",
-        "showLyrics": true
+        "showLyrics": true,
+        "useFahrenheit": true,
+        "useTwelveHourClock": false
     },
     "session": {
         "commands": {

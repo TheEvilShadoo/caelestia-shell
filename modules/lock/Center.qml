@@ -291,8 +291,8 @@ ColumnLayout {
 
             readonly property Pam pam: root.lock.pam
             readonly property string msg: {
-                //if (pam.fprintState === "error")
-                //    return qsTr("FP ERROR: %1").arg(pam.fprint.message);
+                if (pam.fprintState === "error")
+                    return qsTr("FP ERROR: %1").arg(pam.fprint.message);
                 if (pam.state === "error")
                     return qsTr("PW ERROR: %1").arg(pam.passwd.message);
 
