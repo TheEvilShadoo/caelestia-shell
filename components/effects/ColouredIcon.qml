@@ -8,10 +8,11 @@ IconImage {
     id: root
 
     required property color colour
+    property bool colorize: true   // <-- new property, default to old behaviour
 
     asynchronous: true
 
-    layer.enabled: true
+    layer.enabled: colorize        // <-- only enable when colorize is true
     layer.effect: Colouriser {
         sourceColor: analyser.dominantColour
         colorizationColor: root.colour
@@ -19,17 +20,16 @@ IconImage {
 
     layer.onEnabledChanged: {
         if (layer.enabled && status === Image.Ready)
-            analyser.requestUpdate();
+            analyser.requestUpdate()
     }
 
     onStatusChanged: {
         if (layer.enabled && status === Image.Ready)
-            analyser.requestUpdate();
+            analyser.requestUpdate()
     }
 
     ImageAnalyser {
         id: analyser
-
         sourceItem: root
     }
 }

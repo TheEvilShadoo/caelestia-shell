@@ -42,6 +42,7 @@ Item {
             source: SysInfo.osLogo
             implicitSize: Math.round(Tokens.font.size.large * 1.2)
             colour: Colours.palette.m3tertiary
+            colorize: false    // <-- turn off colourisation
         }
     }
 }
