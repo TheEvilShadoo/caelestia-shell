@@ -73,8 +73,10 @@ StyledRect {
                 Image {
                     source: Qt.resolvedUrl(root.image)
                     fillMode: Image.PreserveAspectCrop
-                    sourceSize.width: TokenConfig.sizes.notifs.image
-                    sourceSize.height: TokenConfig.sizes.notifs.image
+                    sourceSize: {
+                        const size = TokenConfig.sizes.notifs.image * ((QsWindow.window as QsWindow)?.devicePixelRatio ?? 1);
+                        return Qt.size(size, size);
+                    }
                     cache: false
                     asynchronous: true
                     width: TokenConfig.sizes.notifs.image
@@ -176,11 +178,8 @@ StyledRect {
                     Layout.preferredWidth: root.notifs.length > Config.notifs.groupPreviewNum ? implicitWidth : 0
 
                     StateLayer {
-                        function onClicked(): void {
-                            root.expanded = !root.expanded;
-                        }
-
                         color: root.urgency === "critical" ? Colours.palette.m3onError : Colours.palette.m3onSurface
+                        onClicked: root.expanded = !root.expanded
                     }
 
                     RowLayout {

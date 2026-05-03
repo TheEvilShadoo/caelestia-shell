@@ -39,11 +39,22 @@ QtObject {
     property bool hasActionIcons
     property list<var> actions
 
+    readonly property bool hasFullscreen: {
+        const monitor = Hypr.focusedMonitor;
+        const specialName = monitor?.lastIpcObject.specialWorkspace?.name;
+        if (specialName) {
+            const specialWs = Hypr.workspaces.values.find(ws => ws.name === specialName);
+            return specialWs?.toplevels.values.some(t => t.lastIpcObject.fullscreen > 1) ?? false;
+        }
+        return monitor?.activeWorkspace?.toplevels.values.some(t => t.lastIpcObject.fullscreen > 1) ?? false;
+    }
+
     readonly property Timer timer: Timer {
         running: true
-        interval: notif.expireTimeout > 0 ? notif.expireTimeout : GlobalConfig.notifs.defaultExpireTimeout
+        interval: notif.expireTimeout > 0 ? notif.expireTimeout : notif.hasFullscreen ? GlobalConfig.notifs.fullscreenExpireTimeout : GlobalConfig.notifs.defaultExpireTimeout
         onTriggered: {
-            if (GlobalConfig.notifs.expire)
+            // Always expire if the active workspace has a fullscreen window
+            if (GlobalConfig.notifs.expire || notif.hasFullscreen)
                 notif.popup = false;
         }
     }
@@ -64,7 +75,7 @@ QtObject {
                     if (status !== Image.Ready || width != TokenConfig.sizes.notifs.image || height != TokenConfig.sizes.notifs.image)
                         return;
 
-                    const cacheKey = notif.appName + notif.summary + notif.id;
+                    const cacheKey = notif.appName + notif.summary + notif.id + notif.image;
                     let h1 = 0xdeadbeef, h2 = 0x41c6ce57, ch;
                     for (let i = 0; i < cacheKey.length; i++) {
                         ch = cacheKey.charCodeAt(i);
@@ -77,7 +88,6 @@ QtObject {
                     h2 ^= Math.imul(h1 ^ (h1 >>> 13), 3266489909);
                     const hash = (h2 >>> 0).toString(16).padStart(8, 0) + (h1 >>> 0).toString(16).padStart(8, 0);
 
-                    Paths; // Screw you qmlls
                     const cache = `${Paths.notifimagecache}/${hash}.png`;
                     CUtils.saveItem(this, Qt.resolvedUrl(cache), () => {
                         notif.image = cache;
@@ -122,8 +132,7 @@ QtObject {
 
         function onImageChanged(): void {
             notif.image = notif.notification.image;
-            if (notif.notification?.image)
-                notif.dummyImageLoader.active = true;
+            notif.maybeTriggerDummyImageLoader();
         }
 
         function onExpireTimeoutChanged(): void {
@@ -183,6 +192,11 @@ QtObject {
         }
     }
 
+    function maybeTriggerDummyImageLoader(): void {
+        if (image && !image.startsWith("image://icon/") && !image.startsWith(Paths.notifimagecache))
+            dummyImageLoader.active = true;
+    }
+
     function lock(item: Item): void {
         locks.add(item);
     }
@@ -212,8 +226,7 @@ QtObject {
         appIcon = notification.appIcon;
         appName = notification.appName;
         image = notification.image;
-        if (notification?.image)
-            dummyImageLoader.active = true;
+        maybeTriggerDummyImageLoader();
         expireTimeout = notification.expireTimeout;
         hints = notification.hints;
         urgency = notification.urgency;

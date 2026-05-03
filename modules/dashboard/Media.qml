@@ -27,7 +27,7 @@ Item {
 
     property real playerProgress: {
         const active = Players.active;
-        return active?.length ? active.position / active.length : 0;
+        return active?.length ? (active.position % active.length) / active.length : 0;
     }
 
     function lengthStr(length: int): string {
@@ -184,8 +184,10 @@ Item {
             source: Players.getArtUrl(Players.active)
             asynchronous: true
             fillMode: Image.PreserveAspectCrop
-            sourceSize.width: width
-            sourceSize.height: height
+            sourceSize: {
+                const dpr = (QsWindow.window as QsWindow)?.devicePixelRatio ?? 1;
+                return Qt.size(width * dpr, height * dpr);
+            }
 
             MouseArea {
                 anchors.fill: parent
@@ -354,7 +356,7 @@ Item {
 
                 anchors.left: parent.left
 
-                text: root.lengthStr(Players.active?.position ?? -1)
+                text: root.lengthStr(Players.active ? Players.active.position % Players.active.length : -1)
                 color: Colours.palette.m3onSurfaceVariant
                 font.pointSize: Tokens.font.size.small
             }

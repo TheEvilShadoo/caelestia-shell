@@ -1,4 +1,5 @@
 import QtQuick
+import Quickshell
 import Caelestia.Config
 import Caelestia.Models
 import qs.components
@@ -25,12 +26,11 @@ Item {
     implicitHeight: image.height + label.height + Tokens.spacing.small / 2 + Tokens.padding.large + Tokens.padding.normal
 
     StateLayer {
-        function onClicked(): void {
+        radius: Tokens.rounding.normal
+        onClicked: {
             Wallpapers.setWallpaper(root.modelData.path);
             root.visibilities.launcher = false;
         }
-
-        radius: Tokens.rounding.normal
     }
 
     Elevation {
@@ -64,11 +64,13 @@ Item {
         }
 
         CachingImage {
+            anchors.fill: parent
             path: root.modelData.path
             smooth: !root.PathView.view.moving
-            cache: true
-
-            anchors.fill: parent
+            sourceSize: {
+                const dpr = (QsWindow.window as QsWindow)?.devicePixelRatio ?? 1;
+                return Qt.size(image.implicitWidth * dpr, image.implicitHeight * dpr);
+            }
         }
     }
 

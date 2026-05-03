@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Shapes
+import Quickshell
 import Caelestia.Config
 import Caelestia.Services
 import qs.components
@@ -11,7 +12,7 @@ Item {
 
     property real playerProgress: {
         const active = Players.active;
-        return active?.length ? active.position / active.length : 0;
+        return active?.length ? (active.position % active.length) / active.length : 0;
     }
 
     anchors.top: parent.top
@@ -109,8 +110,10 @@ Item {
             source: Players.getArtUrl(Players.active)
             asynchronous: true
             fillMode: Image.PreserveAspectCrop
-            sourceSize.width: width
-            sourceSize.height: height
+            sourceSize: {
+                const dpr = (QsWindow.window as QsWindow)?.devicePixelRatio ?? 1;
+                return Qt.size(width * dpr, height * dpr);
+            }
         }
     }
 
@@ -173,31 +176,22 @@ Item {
 
         spacing: Tokens.spacing.small
 
-        Control {
-            function onClicked(): void {
-                Players.active?.previous();
-            }
-
+        PlayerControl {
             icon: "skip_previous"
             canUse: Players.active?.canGoPrevious ?? false
+            onClicked: Players.active?.previous()
         }
 
-        Control {
-            function onClicked(): void {
-                Players.active?.togglePlaying();
-            }
-
+        PlayerControl {
             icon: Players.active?.isPlaying ? "pause" : "play_arrow"
             canUse: Players.active?.canTogglePlaying ?? false
+            onClicked: Players.active?.togglePlaying()
         }
 
-        Control {
-            function onClicked(): void {
-                Players.active?.next();
-            }
-
+        PlayerControl {
             icon: "skip_next"
             canUse: Players.active?.canGoNext ?? false
+            onClicked: Players.active?.next()
         }
     }
 
@@ -219,25 +213,21 @@ Item {
         fillMode: AnimatedImage.PreserveAspectFit
     }
 
-    component Control: StyledRect {
+    component PlayerControl: StyledRect {
         id: control
 
         required property string icon
         required property bool canUse
 
-        function onClicked(): void {
-        }
+        signal clicked
 
         implicitWidth: Math.max(icon.implicitHeight, icon.implicitHeight) + Tokens.padding.small
         implicitHeight: implicitWidth
 
         StateLayer {
-            function onClicked(): void {
-                control.onClicked();
-            }
-
             disabled: !control.canUse
             radius: Tokens.rounding.full
+            onClicked: control.clicked()
         }
 
         MaterialIcon {
