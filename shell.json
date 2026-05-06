@@ -298,6 +298,11 @@
         },
         "vimKeybinds": false
     },
+    "lock": {
+        "enableFprint": false,
+        "hideNotifs": false,
+        "recolourLogo": false
+    },
     "services": {
         "lyricsBackend": "NetEase",
         "showLyrics": true,
