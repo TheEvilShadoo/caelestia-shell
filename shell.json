@@ -77,20 +77,20 @@
             "lockBeforeSleep": true,
             "timeouts": [
                 {
-                    "idleAction": "lock",
-                    "timeout": 180
+                    "timeout": 180,
+                    "idleAction": "lock"
                 },
                 {
+                    "timeout": 300,
                     "idleAction": "dpms off",
-                    "returnAction": "dpms on",
-                    "timeout": 300
+                    "returnAction": "dpms on"
                 },
                 {
+                    "timeout": 600,
                     "idleAction": [
                         "loginctl",
                         "suspend-then-hibernate"
-                    ],
-                    "timeout": 600
+                    ]
                 }
             ]
         },
