@@ -6,6 +6,7 @@
             }
         },
         "transparency": {
+            "base": 0.85,
             "enabled": false
         }
     },
@@ -18,6 +19,7 @@
             "invertColors": false,
             "position": "top-right"
         },
+        "enabled": true,
         "visualiser": {
             "autoHide": true,
             "enabled": true,
@@ -37,6 +39,8 @@
         },
         "excludedScreens": [
         ],
+        "persistent": true,
+        "showOnHover": true,
         "status": {
             "showAudio": true,
             "showKbLayout": false,
@@ -49,7 +53,12 @@
             "recolour": false
         },
         "workspaces": {
-            "occupiedBg": false
+            "activeIndicator": true,
+            "maxWindowIcons": 3,
+            "occupiedBg": false,
+            "perMonitorWorkspaces": false,
+            "showWindows": true,
+            "shown": 5
         }
     },
     "dashboard": {
@@ -315,7 +324,9 @@
     },
     "utilities": {
         "toasts": {
-            "kbLayoutChanged": false
+            "capsLockChanged": false,
+            "kbLayoutChanged": false,
+            "nowPlaying": false
         }
     }
 }
