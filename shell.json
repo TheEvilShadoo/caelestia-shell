@@ -37,7 +37,9 @@
             "background": false,
             "showDate": false
         },
-        "excludedScreens": [""],
+        "excludedScreens": [
+            ""
+        ],
         "persistent": true,
         "showOnHover": true,
         "status": {
@@ -65,24 +67,30 @@
     },
     "general": {
         "apps": {
-            "terminal": ["footclient", "-e"]
+            "terminal": [
+                "footclient",
+                "-e"
+            ]
         },
         "idle": {
-            "lockBeforeSleep": true,
             "inhibitWhenAudio": true,
+            "lockBeforeSleep": true,
             "timeouts": [
                 {
-                    "timeout": 180,
-                    "idleAction": "lock"
+                    "idleAction": "lock",
+                    "timeout": 180
                 },
                 {
-                    "timeout": 300,
                     "idleAction": "dpms off",
-                    "returnAction": "dpms on"
+                    "returnAction": "dpms on",
+                    "timeout": 300
                 },
                 {
-                    "timeout": 600,
-                    "idleAction": ["loginctl", "suspend-then-hibernate"]
+                    "idleAction": [
+                        "loginctl",
+                        "suspend-then-hibernate"
+                    ],
+                    "timeout": 600
                 }
             ]
         },
@@ -91,7 +99,10 @@
     "launcher": {
         "actions": [
             {
-                "command": ["autocomplete", "calc"],
+                "command": [
+                    "autocomplete",
+                    "calc"
+                ],
                 "dangerous": false,
                 "description": "Do simple math equations (powered by Qalc)",
                 "enabled": true,
@@ -99,7 +110,10 @@
                 "name": "Calculator"
             },
             {
-                "command": ["autocomplete", "scheme"],
+                "command": [
+                    "autocomplete",
+                    "scheme"
+                ],
                 "dangerous": false,
                 "description": "Change the current colour scheme",
                 "enabled": true,
@@ -107,7 +121,10 @@
                 "name": "Scheme"
             },
             {
-                "command": ["autocomplete", "wallpaper"],
+                "command": [
+                    "autocomplete",
+                    "wallpaper"
+                ],
                 "dangerous": false,
                 "description": "Change the current wallpaper",
                 "enabled": true,
@@ -115,7 +132,10 @@
                 "name": "Wallpaper"
             },
             {
-                "command": ["autocomplete", "variant"],
+                "command": [
+                    "autocomplete",
+                    "variant"
+                ],
                 "dangerous": false,
                 "description": "Change the current scheme variant",
                 "enabled": true,
@@ -123,7 +143,10 @@
                 "name": "Variant"
             },
             {
-                "command": ["autocomplete", "transparency"],
+                "command": [
+                    "autocomplete",
+                    "transparency"
+                ],
                 "dangerous": false,
                 "description": "Change shell transparency",
                 "enabled": false,
@@ -131,7 +154,11 @@
                 "name": "Transparency"
             },
             {
-                "command": ["caelestia", "wallpaper", "-r"],
+                "command": [
+                    "caelestia",
+                    "wallpaper",
+                    "-r"
+                ],
                 "dangerous": false,
                 "description": "Switch to a random wallpaper",
                 "enabled": true,
@@ -139,7 +166,10 @@
                 "name": "Random"
             },
             {
-                "command": ["setMode", "light"],
+                "command": [
+                    "setMode",
+                    "light"
+                ],
                 "dangerous": false,
                 "description": "Change the scheme to light mode",
                 "enabled": true,
@@ -147,7 +177,10 @@
                 "name": "Light"
             },
             {
-                "command": ["setMode", "dark"],
+                "command": [
+                    "setMode",
+                    "dark"
+                ],
                 "dangerous": false,
                 "description": "Change the scheme to dark mode",
                 "enabled": true,
@@ -155,7 +188,10 @@
                 "name": "Dark"
             },
             {
-                "command": ["loginctl", "poweroff"],
+                "command": [
+                    "loginctl",
+                    "poweroff"
+                ],
                 "dangerous": true,
                 "description": "Shutdown the system",
                 "enabled": true,
@@ -163,7 +199,10 @@
                 "name": "Shutdown"
             },
             {
-                "command": ["loginctl", "reboot"],
+                "command": [
+                    "loginctl",
+                    "reboot"
+                ],
                 "dangerous": true,
                 "description": "Reboot the system",
                 "enabled": true,
@@ -171,7 +210,11 @@
                 "name": "Reboot"
             },
             {
-                "command": ["hyprctl", "dispatch", "exit"],
+                "command": [
+                    "hyprctl",
+                    "dispatch",
+                    "exit"
+                ],
                 "dangerous": true,
                 "description": "Log out of the current session",
                 "enabled": true,
@@ -179,7 +222,10 @@
                 "name": "Logout"
             },
             {
-                "command": ["loginctl", "lock-session"],
+                "command": [
+                    "loginctl",
+                    "lock-session"
+                ],
                 "dangerous": false,
                 "description": "Lock the current session",
                 "enabled": true,
@@ -187,7 +233,10 @@
                 "name": "Lock"
             },
             {
-                "command": ["loginctl", "suspend-then-hibernate"],
+                "command": [
+                    "loginctl",
+                    "suspend-then-hibernate"
+                ],
                 "dangerous": false,
                 "description": "Suspend then hibernate",
                 "enabled": true,
@@ -195,7 +244,12 @@
                 "name": "Sleep"
             },
             {
-                "command": ["caelestia", "shell", "controlCenter", "open"],
+                "command": [
+                    "caelestia",
+                    "shell",
+                    "controlCenter",
+                    "open"
+                ],
                 "dangerous": false,
                 "description": "Configure the shell",
                 "enabled": true,
@@ -252,10 +306,23 @@
     },
     "session": {
         "commands": {
-            "hibernate": ["loginctl", "hibernate"],
-            "logout": ["hyprctl", "dispatch", "exit"],
-            "reboot": ["loginctl", "reboot"],
-            "shutdown": ["loginctl", "poweroff"]
+            "hibernate": [
+                "loginctl",
+                "hibernate"
+            ],
+            "logout": [
+                "hyprctl",
+                "dispatch",
+                "exit"
+            ],
+            "reboot": [
+                "loginctl",
+                "reboot"
+            ],
+            "shutdown": [
+                "loginctl",
+                "poweroff"
+            ]
         }
     },
     "utilities": {
