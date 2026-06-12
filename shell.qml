@@ -14,6 +14,8 @@ import Quickshell
 ShellRoot {
     settings.watchFiles: false
 
+    GSFLoader {}
+
     Background {}
     Drawers {}
     AreaPicker {}
