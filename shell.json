@@ -305,7 +305,6 @@
     },
     "services": {
         "lyricsBackend": "NetEase",
-        "showLyrics": true,
         "useFahrenheit": true,
         "useTwelveHourClock": false
     },
