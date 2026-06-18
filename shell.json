@@ -63,7 +63,8 @@
         }
     },
     "dashboard": {
-        "enabled": true
+        "enabled": true,
+        "showDashboard": true
     },
     "general": {
         "apps": {
