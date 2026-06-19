@@ -41,6 +41,10 @@
             ""
         ],
         "persistent": true,
+        "scrollActions": {
+            "brightness": false,
+            "volume": false
+        },
         "showOnHover": true,
         "status": {
             "showAudio": true,
@@ -313,7 +317,6 @@
     },
     "services": {
         "lyricsBackend": "NetEase",
-        "showLyrics": true,
         "useFahrenheit": true,
         "useTwelveHourClock": false
     },
@@ -342,7 +345,8 @@
         "toasts": {
             "capsLockChanged": false,
             "kbLayoutChanged": false,
-            "nowPlaying": false
+            "nowPlaying": false,
+            "numLockChanged": false
         }
     }
 }
