@@ -63,8 +63,7 @@
         }
     },
     "dashboard": {
-        "enabled": true,
-        "showDashboard": true
+        "enabled": true
     },
     "general": {
         "apps": {
@@ -291,7 +290,15 @@
             "wine-uninstaller",
             "winetricks",
             "wpa_gui",
-            "org.pwmt.zathura"
+            "org.pwmt.zathura",
+            "nm-connection-editor",
+            "bssh",
+            "bvnc",
+            "nemo",
+            "Girls Hobby in LOVE",
+            "valve-steamvr",
+            "valve-vrmonitor",
+            "org.gnome.Vte.App.Gtk4"
         ],
         "showOnHover": false,
         "useFuzzy": {
@@ -306,6 +313,7 @@
     },
     "services": {
         "lyricsBackend": "NetEase",
+        "showLyrics": true,
         "useFahrenheit": true,
         "useTwelveHourClock": false
     },
