@@ -434,7 +434,7 @@ StyledRect {
                     if (!root.expanded)
                         return;
 
-                    Quickshell.execDetached(["gtk-launch", link]);
+                    Qt.openUrlExternally(link);
                     root.modelData.popup = false;
                 }
 

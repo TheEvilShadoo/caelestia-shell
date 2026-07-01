@@ -41,6 +41,9 @@
             ""
         ],
         "persistent": true,
+        "popouts": {
+            "statusIcons": true
+        },
         "scrollActions": {
             "brightness": false,
             "volume": false
@@ -48,9 +51,13 @@
         "showOnHover": true,
         "status": {
             "showAudio": true,
+            "showBattery": false,
+            "showBluetooth": false,
             "showKbLayout": false,
             "showLockStatus": true,
-            "showMicrophone": false
+            "showMicrophone": true,
+            "showNetwork": false,
+            "showWifi": false
         },
         "tray": {
             "background": false,
@@ -67,7 +74,8 @@
         }
     },
     "dashboard": {
-        "enabled": true
+        "enabled": true,
+        "showPerformance": false
     },
     "general": {
         "apps": {
@@ -85,8 +93,16 @@
                     "timeout": 180
                 },
                 {
-                    "idleAction": "dpms off",
-                    "returnAction": "dpms on",
+                    "idleAction": [
+                        "sh",
+                        "-c",
+                        "caelestia shell brightness set 0"
+                    ],
+                    "returnAction": [
+                        "sh",
+                        "-c",
+                        "caelestia shell brightness set 1"
+                    ],
                     "timeout": 300
                 },
                 {
@@ -316,7 +332,8 @@
         "recolourLogo": false
     },
     "services": {
-        "lyricsBackend": "NetEase",
+        "defaultPlayer": "Brave",
+        "lyricsBackend": "Auto",
         "useFahrenheit": true,
         "useTwelveHourClock": false
     },
