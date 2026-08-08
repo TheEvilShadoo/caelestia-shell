@@ -59,6 +59,36 @@
             "showNetwork": false,
             "showWifi": false
         },
+        "statusIcons": [
+            {
+                "enabled": true,
+                "id": "lockStatus"
+            },
+            {
+                "enabled": true,
+                "id": "audio"
+            },
+            {
+                "enabled": true,
+                "id": "microphone"
+            },
+            {
+                "enabled": false,
+                "id": "kbLayout"
+            },
+            {
+                "enabled": true,
+                "id": "network"
+            },
+            {
+                "enabled": false,
+                "id": "bluetooth"
+            },
+            {
+                "enabled": false,
+                "id": "battery"
+            }
+        ],
         "tray": {
             "background": false,
             "compact": false,
@@ -334,6 +364,7 @@
     },
     "services": {
         "defaultPlayer": "Brave",
+        "gpuType": "",
         "lyricsBackend": "Auto",
         "useFahrenheit": true,
         "useTwelveHourClock": false
