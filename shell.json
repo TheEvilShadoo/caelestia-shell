@@ -79,6 +79,9 @@
     },
     "general": {
         "apps": {
+            "explorer": [
+                "nemo"
+            ],
             "terminal": [
                 "footclient",
                 "-e"
@@ -90,7 +93,7 @@
             "timeouts": [
                 {
                     "idleAction": "lock",
-                    "timeout": 180
+                    "timeout": 600
                 },
                 {
                     "idleAction": [
@@ -103,14 +106,14 @@
                         "-c",
                         "caelestia shell brightness set 1"
                     ],
-                    "timeout": 300
+                    "timeout": 900
                 },
                 {
                     "idleAction": [
                         "loginctl",
                         "suspend-then-hibernate"
                     ],
-                    "timeout": 600
+                    "timeout": 1200
                 }
             ]
         },
@@ -288,7 +291,6 @@
             "qt5ct",
             "wine-browsedrive",
             "wine-winecfg",
-            "gammastep-indicator",
             "gtk-lshw-lshw",
             "lstopo",
             "mediainfo-gui",
@@ -314,7 +316,6 @@
             "nm-connection-editor",
             "bssh",
             "bvnc",
-            "nemo",
             "Girls Hobby in LOVE",
             "valve-steamvr",
             "valve-vrmonitor",
