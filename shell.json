@@ -41,54 +41,13 @@
             ""
         ],
         "persistent": true,
-        "popouts": {
-            "statusIcons": true
-        },
-        "scrollActions": {
-            "brightness": false,
-            "volume": false
-        },
         "showOnHover": true,
         "status": {
             "showAudio": true,
-            "showBattery": false,
-            "showBluetooth": false,
             "showKbLayout": false,
             "showLockStatus": true,
-            "showMicrophone": true,
-            "showNetwork": false,
-            "showWifi": false
+            "showMicrophone": false
         },
-        "statusIcons": [
-            {
-                "enabled": true,
-                "id": "lockStatus"
-            },
-            {
-                "enabled": true,
-                "id": "audio"
-            },
-            {
-                "enabled": true,
-                "id": "microphone"
-            },
-            {
-                "enabled": false,
-                "id": "kbLayout"
-            },
-            {
-                "enabled": true,
-                "id": "network"
-            },
-            {
-                "enabled": false,
-                "id": "bluetooth"
-            },
-            {
-                "enabled": false,
-                "id": "battery"
-            }
-        ],
         "tray": {
             "background": false,
             "compact": false,
@@ -105,13 +64,10 @@
     },
     "dashboard": {
         "enabled": true,
-        "showPerformance": false
+        "showDashboard": true
     },
     "general": {
         "apps": {
-            "explorer": [
-                "nemo"
-            ],
             "terminal": [
                 "footclient",
                 "-e"
@@ -123,7 +79,7 @@
             "timeouts": [
                 {
                     "idleAction": "lock",
-                    "timeout": 600
+                    "timeout": 180
                 },
                 {
                     "idleAction": [
@@ -136,14 +92,14 @@
                         "-c",
                         "caelestia shell brightness set 1"
                     ],
-                    "timeout": 900
+                    "timeout": 300
                 },
                 {
                     "idleAction": [
-                        "loginctl",
-                        "suspend-then-hibernate"
+                        "doas",
+                        "/home/ryan/.local/bin/suspend-then-hibernate"
                     ],
-                    "timeout": 1200
+                    "timeout": 600
                 }
             ]
         },
@@ -287,8 +243,8 @@
             },
             {
                 "command": [
-                    "loginctl",
-                    "suspend-then-hibernate"
+                    "doas",
+                    "/home/ryan/.local/bin/suspend-then-hibernate"
                 ],
                 "dangerous": false,
                 "description": "Suspend then hibernate",
@@ -321,6 +277,7 @@
             "qt5ct",
             "wine-browsedrive",
             "wine-winecfg",
+            "gammastep-indicator",
             "gtk-lshw-lshw",
             "lstopo",
             "mediainfo-gui",
@@ -342,14 +299,7 @@
             "wine-uninstaller",
             "winetricks",
             "wpa_gui",
-            "org.pwmt.zathura",
-            "nm-connection-editor",
-            "bssh",
-            "bvnc",
-            "Girls Hobby in LOVE",
-            "valve-steamvr",
-            "valve-vrmonitor",
-            "org.gnome.Vte.App.Gtk4"
+            "org.pwmt.zathura"
         ],
         "showOnHover": false,
         "useFuzzy": {
@@ -363,17 +313,15 @@
         "recolourLogo": false
     },
     "services": {
-        "defaultPlayer": "Brave",
-        "gpuType": "",
-        "lyricsBackend": "Auto",
+        "lyricsBackend": "NetEase",
         "useFahrenheit": true,
         "useTwelveHourClock": false
     },
     "session": {
         "commands": {
             "hibernate": [
-                "loginctl",
-                "hibernate"
+                "doas",
+                "/home/ryan/.local/bin/hibernate"
             ],
             "logout": [
                 "hyprctl",
@@ -394,8 +342,7 @@
         "toasts": {
             "capsLockChanged": false,
             "kbLayoutChanged": false,
-            "nowPlaying": false,
-            "numLockChanged": false
+            "nowPlaying": false
         }
     }
 }
