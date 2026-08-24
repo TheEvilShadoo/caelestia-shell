@@ -42,12 +42,6 @@
         ],
         "persistent": true,
         "showOnHover": true,
-        "status": {
-            "showAudio": true,
-            "showKbLayout": false,
-            "showLockStatus": true,
-            "showMicrophone": false
-        },
         "tray": {
             "background": false,
             "compact": false,
@@ -64,7 +58,8 @@
     },
     "dashboard": {
         "enabled": true,
-        "showDashboard": true
+        "showDashboard": true,
+        "showPerformance": true
     },
     "general": {
         "apps": {
@@ -222,7 +217,7 @@
                 "command": [
                     "hyprctl",
                     "dispatch",
-                    "exit"
+                    "hl.dsp.exit()"
                 ],
                 "dangerous": true,
                 "description": "Log out of the current session",
@@ -326,7 +321,7 @@
             "logout": [
                 "hyprctl",
                 "dispatch",
-                "exit"
+                "hl.dsp.exit()"
             ],
             "reboot": [
                 "loginctl",
