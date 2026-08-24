@@ -74,7 +74,7 @@
             "timeouts": [
                 {
                     "idleAction": "lock",
-                    "timeout": 180
+                    "timeout": 300
                 },
                 {
                     "idleAction": [
@@ -87,7 +87,7 @@
                         "-c",
                         "caelestia shell brightness set 1"
                     ],
-                    "timeout": 300
+                    "timeout": 420
                 },
                 {
                     "idleAction": [
