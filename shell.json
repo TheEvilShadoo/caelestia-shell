@@ -303,7 +303,7 @@
         "vimKeybinds": false
     },
     "lock": {
-        "enableFprint": false,
+        "enableFprint": true,
         "hideNotifs": false,
         "recolourLogo": false
     },
