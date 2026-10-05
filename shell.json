@@ -37,9 +37,7 @@
             "background": false,
             "showDate": false
         },
-        "excludedScreens": [
-            ""
-        ],
+        "excludedScreens": [],
         "persistent": true,
         "showOnHover": true,
         "tray": {
@@ -91,10 +89,10 @@
                 },
                 {
                     "idleAction": [
-                        "doas",
-                        "/home/ryan/.local/bin/suspend-then-hibernate"
+                        "loginctl",
+                        "suspend"
                     ],
-                    "timeout": 600
+                    "timeout": 900
                 }
             ]
         },
@@ -238,11 +236,11 @@
             },
             {
                 "command": [
-                    "doas",
-                    "/home/ryan/.local/bin/suspend-then-hibernate"
+                    "loginctl",
+                    "suspend"
                 ],
                 "dangerous": false,
-                "description": "Suspend then hibernate",
+                "description": "Sleep",
                 "enabled": true,
                 "icon": "bedtime",
                 "name": "Sleep"
@@ -315,8 +313,8 @@
     "session": {
         "commands": {
             "hibernate": [
-                "doas",
-                "/home/ryan/.local/bin/hibernate"
+                "loginctl",
+                "hibernate"
             ],
             "logout": [
                 "hyprctl",
