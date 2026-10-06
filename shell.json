@@ -49,7 +49,8 @@
             "activeIndicator": true,
             "maxWindowIcons": 3,
             "occupiedBg": false,
-            "perMonitorWorkspaces": false,
+            "showUnoccupied": true,
+            "perMonitor": false,
             "showWindows": true,
             "shown": 5
         }
@@ -68,6 +69,7 @@
         },
         "idle": {
             "inhibitWhenAudio": true,
+            "inhibitWhenCharging": false,
             "lockBeforeSleep": true,
             "timeouts": [
                 {
@@ -75,16 +77,8 @@
                     "timeout": 300
                 },
                 {
-                    "idleAction": [
-                        "sh",
-                        "-c",
-                        "caelestia shell brightness set 0"
-                    ],
-                    "returnAction": [
-                        "sh",
-                        "-c",
-                        "caelestia shell brightness set 1"
-                    ],
+                    "idleAction": "dpms off",
+                    "returnAction": "dpms on",
                     "timeout": 420
                 },
                 {
@@ -95,6 +89,30 @@
                     "timeout": 900
                 }
             ]
+        },
+        "battery": {
+            "warnLevels": [
+                {
+                    "level": 15,
+                    "title": "Low battery",
+                    "message": "You might want to plug in a charger",
+                    "icon": "battery_android_frame_2"
+                },
+                {
+                    "level": 10,
+                    "title": "Did you see the previous message?",
+                    "message": "You should probably plug in a charger <b>now</b>",
+                    "icon": "battery_android_frame_1"
+                },
+                {
+                    "level": 5,
+                    "title": "Critical battery level",
+                    "message": "PLUG THE CHARGER RIGHT NOW!!",
+                    "icon": "battery_android_alert",
+                    "critical": true
+                }
+            ],
+            "criticalLevel": 3
         },
         "logo": "gentoo.svg"
     },
@@ -307,8 +325,9 @@
     },
     "services": {
         "lyricsBackend": "NetEase",
-        "useFahrenheit": true,
-        "useTwelveHourClock": false
+        "clockFormat": "TwentyFourHour",
+        "weatherUnits": "Fahrenheit",
+        "sensorUnits": "Celsius"
     },
     "session": {
         "commands": {
